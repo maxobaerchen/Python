@@ -3,7 +3,7 @@
 class TicTacToe:
 
     def __init__(self):
-        self.first_row = ['_', '_', '_']  # Initializing a TicTacToe board
+        self.first_row = ['_', '_', '_']  # Initializing a TicTacToe bord
         self.second_row = ['_', '_', '_']
         self.third_row = ['_', '_', '_']
         # Creating arrays to check for three marks in a row
@@ -87,25 +87,40 @@ class TicTacToe:
     def move_a(self, player_input):
         if player_input == 1 and self.first_row[0] == '_':
             self.first_row[0] = 'x'
+            self.fourth_array[0] = 'x'
+            self.seventh_array[0] = 'x'
         elif player_input == 2 and self.first_row[1] == '_':
             self.first_row[1] = 'x'
+            self.fifth_array[1] = 'x'
         elif player_input == 3 and self.first_row[2] == '_':
             self.first_row[2] = 'x'
+            self.sixth_array[1] = 'x'
+            self.eighth_array[0] = 'x'
         elif player_input == 4 and self.second_row[0] == '_':
             self.second_row[0] = 'x'
+            self.fourth_array[1] = 'x'
         elif player_input == 5 and self.second_row[1] == '_':
             self.second_row[1] = 'x'
+            self.fifth_array[1] = 'x'
+            self.seventh_array[1] = 'x'
+            self.eighth_array[1] = 'x'
         elif player_input == 6 and self.second_row[2] == '_':
             self.second_row[2] = 'x'
+            self.sixth_array[1] = 'x'
         elif player_input == 7 and self.third_row[0] == '_':
             self.third_row[0] = 'x'
+            self.fourth_array[2] = 'x'
+            self.eighth_array[2] = 'x'
         elif player_input == 8 and self.third_row[1] == '_':
             self.third_row[1] = 'x'
             self.fifth_array[2] = 'x'
         elif player_input == 9 and self.third_row[2] == '_':
             self.third_row[2] = 'x'
+            self.sixth_array[2] = 'x'
+            self.seventh_array[2] = 'x'
         else:
             print('This field is not available anymore')
+            return 'This fields is not available anymore'
 
     def move_b(self, player_input):
         if player_input == 1 and self.first_row[0] == '_':
@@ -143,6 +158,7 @@ class TicTacToe:
             self.seventh_array[2] = 'o'
         else:
             print('This field is not available anymore')
+            return 'This fields is not available anymore'
 
     def turn_a(self, player_input):
         self.move_a(player_input)
@@ -187,7 +203,7 @@ tic = TicTacToe()
 
 while True:
     tic.turn_a(get_number_a())
-    if tic.win_check_a() is True:       
+    if tic.win_check_a() is True:
         print('Player a won!')
         break
     elif tic.draw_check() is True:
