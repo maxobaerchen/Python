@@ -3,7 +3,7 @@
 class TicTacToe:
 
     def __init__(self):
-        self.first_row = ['_', '_', '_']  # Initializing a TicTacToe bord
+        self.first_row = ['_', '_', '_']  # Initializing a TicTacToe board
         self.second_row = ['_', '_', '_']
         self.third_row = ['_', '_', '_']
         # Creating arrays to check for three marks in a row
