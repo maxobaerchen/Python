@@ -187,13 +187,13 @@ tic = TicTacToe()
 
 while True:
     tic.turn_a(get_number_a())
-    if tic.win_check_a() == True:       # All these statements do not work when simplified
+    if tic.win_check_a() is True:       
         print('Player a won!')
         break
-    elif tic.draw_check() == True:
+    elif tic.draw_check() is True:
         print('Draw!')
         break
     tic.turn_b(get_number_b())
-    if tic.win_check_a() == False:
+    if tic.win_check_a() is False:
         print('Player b won!')
         break
