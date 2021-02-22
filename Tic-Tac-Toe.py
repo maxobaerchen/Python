@@ -19,7 +19,7 @@ class TicTacToe:
     def win_check_a(self):  # Player a uses 'x's, player b uses 'o's
 
         def x_count(array):  # Defining a method to count the 'x's in an array
-            print(array)
+            # print(array)
             counter_x = 0
             for k in array:
                 if k == 'x':
@@ -31,7 +31,7 @@ class TicTacToe:
             for k in array:
                 if k == 'o':
                     counter_o += 1
-            print(counter_o)
+            # print(counter_o)
             return counter_o
 
         if x_count(self.first_array) == 3:  # Defining cases in which a player wins
@@ -187,7 +187,7 @@ tic = TicTacToe()
 
 while True:
     tic.turn_a(get_number_a())
-    if tic.win_check_a() == True:
+    if tic.win_check_a() == True:       # All these statements do not work when simplified
         print('Player a won!')
         break
     elif tic.draw_check() == True:
