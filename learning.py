@@ -163,13 +163,49 @@ def function():
 
 # objects
 class FirstClass:
-    def __init__(self, num=42):     # function that is called when calling the class
+    def __init__(self, num=42):  # function that is called when calling the class
         self.num = num
+        self.list = []
 
     def add_one(self, number):
         number += 1
+        self.list.append(42)
         return number
 
 
 instance = FirstClass()
 print(instance.add_one(41))
+
+
+# inheritance
+class Creature:
+    ears = 2
+
+    def __init__(self):
+        self.vertebrate_class = 'mammal'
+
+    def ears(self):
+        self.ears += 1
+
+
+class Dog(Creature):  # class Dog inherits from class Creature
+    eyes = 2
+    ears = 42       # overwrites variable/attribute from Creature
+    legs = 4
+    name = 'Dog'
+
+    def __init__(self, new_class):
+        Creature.__init__()
+        self.vertebrate_class = new_class
+
+    def ears(self):         # overwrites method ears with new method
+        self.ears = dog_ears
+        Creature.ears = creature_ears
+
+
+Creature = Creature()
+Dog = Dog('animal')
+print(Creature.vertebrate_class)
+print(Dog.vertebrate_class)
+
+
