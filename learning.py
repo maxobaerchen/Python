@@ -188,9 +188,13 @@ class Creature:
         self.ears += 1
 
 
-class Dog(Creature):  # class Dog inherits from class Creature
+class Pet:
+    paws = 4
+
+
+class Dog(Pet):  # class Dog inherits from class pet and therefore from Creature
     eyes = 2
-    ears = 42       # overwrites variable/attribute from Creature
+    ears = 42  # overwrites variable/attribute from Creature
     legs = 4
     name = 'Dog'
 
@@ -198,7 +202,7 @@ class Dog(Creature):  # class Dog inherits from class Creature
         Creature.__init__()
         self.vertebrate_class = new_class
 
-    def ears(self):         # overwrites method ears with new method
+    def ears(self):  # overwrites method ears with new method
         self.ears = dog_ears
         Creature.ears = creature_ears
 
@@ -209,3 +213,18 @@ print(Creature.vertebrate_class)
 print(Dog.vertebrate_class)
 
 
+# exceptions
+class Ex(Exception):
+    pass
+
+
+try:
+    raise Ex()
+except Ex:
+    print('Exception')
+except ZeroDivisionError:
+    print('Division by zero')
+except Exception:
+    print('Some exception')
+else:
+    print('No exception')
