@@ -47,8 +47,10 @@ my_list = [0, 1, 2, 3]  # creating a list
 my_list2 = ['string1', 'string2']
 my_list += [4, 5, 6]  # appends a list to my_list
 my_list.append(7)  # appends a number to my_list
+print(my_list[0:3])  # prints the first three elements of list 'my_list'
 two_times_three = my_list[3] * my_list[4]  # multiplies to numbers from the list
-summed_list = [my_list + my_list2]  # creates a list from two lists
+summed_list = my_list + my_list2  # creates a list from two lists/adds them together
+print(summed_list)
 
 # different operations
 pi_rounded = round(pi, 4)  # rounds pi to 4 digits
@@ -123,7 +125,7 @@ print(file.read(2))  # prints first two characters; \n counts as a character
 print(file.readline())  # prints first line
 file = open('/home/maxo/Storage/Python/venv/text', 'r+', encoding='latin-1')
 for line in file:  # prints every line in
-    print.ln(line)
+    print(line)
 
 # write files
 file = open('/home/maxo/Storage/Python/venv/text', 'a', encoding='latin-1')
@@ -131,6 +133,9 @@ file.write('Zeile vier')
 file.close()  # closes the file and waits for related processes to cease
 file = open('/home/maxo/Storage/Python/venv/text', 'r', encoding='latin-1')
 print(file.read())
+with open('/home/maxo/Storage/Python/venv/text', 'r', encoding='latin-1') as file:
+    for line in file:
+        print(line)
 
 
 # scope of variables
@@ -228,3 +233,11 @@ except Exception:
     print('Some exception')
 else:
     print('No exception')
+
+
+file = open('/home/maxo/Storage/Python/venv/text', 'r', encoding='latin-1')
+text = file.read()
+print(text)
+for character in text:
+    time.sleep(0.25)
+    print(character, end='')
