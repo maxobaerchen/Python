@@ -51,6 +51,7 @@ print(my_list[0:3])  # prints the first three elements of list 'my_list'
 two_times_three = my_list[3] * my_list[4]  # multiplies to numbers from the list
 summed_list = my_list + my_list2  # creates a list from two lists/adds them together
 print(summed_list)
+sliced = my_list[:2:2]  # appends every number between my_list[0] and my_list[2] in steps of 2 to sliced -> sliced = [0]
 
 # different operations
 pi_rounded = round(pi, 4)  # rounds pi to 4 digits
