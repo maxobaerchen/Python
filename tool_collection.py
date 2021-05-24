@@ -2,7 +2,7 @@ import time
 import pyautogui
 
 
-def get_number(text_message, data_type, exception_type=ValueError):
+def get_input(text_message, data_type, exception_type=ValueError):
     while True:
         user_input = input(text_message)
         try:
