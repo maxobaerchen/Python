@@ -50,7 +50,12 @@ my_list.append(7)  # appends a number to my_list
 print(my_list[0:3])  # prints the first three elements of list 'my_list'
 two_times_three = my_list[3] * my_list[4]  # multiplies to numbers from the list
 summed_list = my_list + my_list2  # creates a list from two lists/adds them together
-print(summed_list)
+print(summed_list)  # -> one big list
+summed_list.append(my_list)  # inserts one list into the other
+print(summed_list)  # -> one big list and one smaller inside
+summed_list = [my_list, my_list2]  # creates a list with both lists inside
+print(summed_list)  # -> two lists inside the big list
+print(summed_list[0][0])
 
 # different operations
 pi_rounded = round(pi, 4)  # rounds pi to 4 digits
@@ -231,9 +236,6 @@ except ZeroDivisionError:
     print('Division by zero')
 except Exception:
     print('Some exception')
-else:
-    print('No exception')
-
 
 file = open('/home/maxo/Storage/Python/venv/text', 'r', encoding='latin-1')
 text = file.read()
@@ -242,11 +244,13 @@ for character in text:
     time.sleep(0.25)
     print(character, end='')
 
+# tkinter
+from tkinter import *
 
+root = Tk()  # creating an instance
+first_label = Label(root, text='Widow title')  # creating a label
+first_button = Button(root, text='Click me!', padx=50, pady=50)  # creating a button
+first_label.pack()  # displaying the label
+first_button.pack()  # displaying the button
 
-
-
-
-
-
-
+root.mainloop()  # looping through the process, otherwise, there would be just one frame
