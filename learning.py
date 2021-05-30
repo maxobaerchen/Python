@@ -248,8 +248,18 @@ for character in text:
 from tkinter import *
 
 root = Tk()  # creating an instance
-first_label = Label(root, text='Widow title')  # creating a label
-first_button = Button(root, text='Click me!', padx=50, pady=50)  # creating a button
+
+
+def respond_to_click():
+    response_label = Label(root, text='You successfully clicked the button!')
+    response_label.pack()
+
+
+first_label = Label(root, text='Window title')  # creating a label
+# creating a button
+first_button = Button(root, text='Click me!', padx=50, pady=50, command=respond_to_click, bg='white', fg='black')
+
+
 first_label.pack()  # displaying the label
 first_button.pack()  # displaying the button
 
