@@ -1,7 +1,6 @@
 """
 To-Do list:
-1. Trying a possible configuration/Sudoku solver
-2. Build a GUI
+Build a GUI
 """
 import tool_collection
 
