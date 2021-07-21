@@ -36,14 +36,63 @@ n = 3 == 1  # checks if 3 equals 1
 o = 3 != 1  # checks if 3 does not equal 1
 
 # print statement
-print('string')  # prints a string
+print('string')  # prints a string (print() converts input into before outputting it)
 print(2)  # prints an integer
 print('What\'s up?')  # print a  special character, which would otherwise cause problems
 print('New\nline')  # print a new line
 print(r'Raw text; \n doesn\'t work')  # prints a raw string
 
+# strings
+string1 = 'example string'  # assigns string to variable string; strings are immutable
+string2 = string.replace('e', 'a')  # replaces every e in string with an a and stores it in string2
+string3 = string + string2  # appends string2 to string1 and stores it in string3
+string4 = 3 * string3  # strings three times string3 together
+string5 = f'{string}{string2}'  # appends string2 to string1 and stores it in string5
+length_string1 = len(string1)  # stores the length of string1 in length_string1
+true_true = string1 == 'example string'  # checks if string1 is 'example string' and stores the boolean value in true
+escape_characters = '\n (new line/ENTER), \t horizontal tab/TAB, ' \
+                    '\\ masking character to indicates that the following character is no special character'
+raw_string = r'\n and other escape characters are ignored'
+
+name = 'Max Mustermann'
+name_upper = name.upper()  # capitalizes every character
+name_lower = name.lower()  # lowercases every character
+name_title = name.title()  # capitalizes the first character of every word
+name_capitalize = name.capitalize()  # capitalizes the first character of the string
+start_Max = name.startswith('Max')  # checks if name starts with 'Max'
+end_Mustermann = name.endswith('Mustermann')  # checks if name ends with 'Mustermann'
+start_Karl = name.startswith(('Karl', 'Max'))  # checks if name starts with 'Karl' or 'Max' (args: str or tuple)
+print(start_Karl)
+name_list = ('Karl', 'Max')
+start_Karl_or_Max = name.startswith(name_list)
+print(name_list)
+print(start_Karl_or_Max)
+
+whitespaces = '\n             whitespace  whitespace\t  whitespace                             '
+strip_whitespace = whitespaces.strip()  # removes \t, \n and whitespaces between the string and each quote
+lstrip_whitespace = whitespaces.lstrip()  # removes \t, \n and whitespaces between the string and first quote
+rstrip_whitespace = whitespaces.rstrip()  # removes \t, \n and whitespaces between the string and last quote
+lines = 'first line\nsecond line\nthird line'
+split_by_lines = lines.splitlines()  # creates a list with every line as a single element
+characters = 'This is some     text: it\'s simple, easy to understand, and not redundant'
+split_by_character = characters.split(',')  # creates a list with every string between two commas as a single element
+split_by_whitespace = characters.split()  # without argument: every string between whitespaces, except for whitespaces
+joined_by_whitespace = ' '.join(split_by_whitespace)  # creates string with whitespace between each element
+whitespace = ' \n\t'                    # checks if whitespace consists of anything else than
+whitespace_true = whitespace.isspace()  # whitespaces/enters/tabs; returns bool
+alphabet = 'abcdefghijklmnopqrstuvwxyz'  # checks if alphabet consists of anything else than
+alphabet_true = alphabet.isalpha()       # the characters in the alphabet; returns bool
+print(alphabet_true)
+
+data = 'Data'
+str.encode(data)  # converts data to bytes
+byte_data = data.encode()  # converts data to bytes
+type(byte_data)  # reads type of byte_data
+bytes.decode(byte_data)  # converts byte_data to string
+string_data = byte_data.decode()  # converts byte_data to string
+
 # lists
-my_list = [0, 1, 2, 3]  # creating a list
+my_list = [0, 1, 2, 3]  # creating a list; lists are mutable
 my_list2 = ['string1', 'string2']
 my_list += [4, 5, 6]  # appends a list to my_list
 my_list.append(7)  # appends a number to my_list
@@ -56,6 +105,10 @@ print(summed_list)  # -> one big list and one smaller inside
 summed_list = [my_list, my_list2]  # creates a list with both lists inside
 print(summed_list)  # -> two lists inside the big list
 print(summed_list[0][0])
+print(summed_list[3:])  # outputs every element in summed_list starting from (and including) the fourth element
+summed_list.sort()  # sorts summed_list
+one_to_hundred = list(range(0, 100))
+print(one_to_hundred)
 
 # different operations
 pi_rounded = round(pi, 4)  # rounds pi to 4 digits
@@ -63,10 +116,17 @@ absolute_value = abs(-3)  # takes the absolute value of -3
 true = bool(1)  # converts variables to bool
 false = bool(0)  # empty variables are false
 
+# data types and type casting
+int()
+float()
+str()
+bool()
+list()
+
 # if-statement
 if true:  # equivalent to 'if true == True:'
     print('True')
-else:
+else:480
     print('Unnecessary')
 
 # while-loop
@@ -80,7 +140,7 @@ for i in my_list:
     print(i)
 
 # range-function
-for i in range(1, 10, 2):  # counts from 1 to 9 in steps of 2
+for i in range(1, 10, 2):  # creates a list from 1 to 9 in steps of 2
     print(i)
 
 # break and continue
@@ -258,7 +318,6 @@ def respond_to_click():
 first_label = Label(root, text='Window title')  # creating a label
 # creating a button
 first_button = Button(root, text='Click me!', padx=50, pady=50, command=respond_to_click, bg='white', fg='black')
-
 
 first_label.pack()  # displaying the label
 first_button.pack()  # displaying the button
