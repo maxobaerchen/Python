@@ -1,12 +1,12 @@
 # Python keywords
 
 # import a module
-import numpy
+import time
 
 x = 42  # assigning a value to a variable; Python recognizes the type (int)
 y = 2
 
-# basic arithmetic operations
+# arithmetic operations
 a = 2 + 2  # adding
 b = 2 - 2  # subtracting
 c = 3 * 2  # multiplying
@@ -16,6 +16,8 @@ f = 16 ** (1 / 4)  # takes the 4th root
 f_pow = pow(2, 4)  # raises 2 to the 4th power
 g = 9 % 2  # Modulo divisions
 h = 9 // 2  # Floor division
+pi_rounded = round(pi, 4)  # rounds pi to 4 digits
+absolute_value = abs(-3)  # takes the absolute value of -3
 
 # increment operators
 x += 1  # adds 1 to x
@@ -78,11 +80,17 @@ characters = 'This is some     text: it\'s simple, easy to understand, and not r
 split_by_character = characters.split(',')  # creates a list with every string between two commas as a single element
 split_by_whitespace = characters.split()  # without argument: every string between whitespaces, except for whitespaces
 joined_by_whitespace = ' '.join(split_by_whitespace)  # creates string with whitespace between each element
+text = 'This is some random text'
+text.count('i')  # counts the number of occurrences of a string in another string
+text.find('rand')   # returns the position of the string in another string
+text.find('random')     # if a string contains more than one character, it returns the position of the first character
+text.find('not included')   # if the function return -1, the string is not included
 whitespace = ' \n\t'                    # checks if whitespace consists of anything else than
 whitespace_true = whitespace.isspace()  # whitespaces/enters/tabs; returns bool
 alphabet = 'abcdefghijklmnopqrstuvwxyz'  # checks if alphabet consists of anything else than
 alphabet_true = alphabet.isalpha()       # the characters in the alphabet; returns bool
-print(alphabet_true)
+digit = '11'
+digit_true = digit.isdigit()
 
 data = 'Data'
 str.encode(data)  # converts data to bytes
@@ -90,6 +98,7 @@ byte_data = data.encode()  # converts data to bytes
 type(byte_data)  # reads type of byte_data
 bytes.decode(byte_data)  # converts byte_data to string
 string_data = byte_data.decode()  # converts byte_data to string
+
 
 # lists
 my_list = [0, 1, 2, 3]  # creating a list; lists are mutable
@@ -107,14 +116,18 @@ print(summed_list)  # -> two lists inside the big list
 print(summed_list[0][0])
 print(summed_list[3:])  # outputs every element in summed_list starting from (and including) the fourth element
 summed_list.sort()  # sorts summed_list
+one_to_hundred = list(range(0, 100))    # creates a list from 0 to (and including) 99
+one_to_hundred.clear()   # removes all items
 one_to_hundred = list(range(0, 100))
-print(one_to_hundred)
+print(one_to_hundred.pop(0))    # returns an element by index and returns its value
+one_to_hundred.remove(20)    # removes an element by value
+del one_to_hundred[20:30]  # removes an element/elements by index
+
 
 # different operations
-pi_rounded = round(pi, 4)  # rounds pi to 4 digits
-absolute_value = abs(-3)  # takes the absolute value of -3
 true = bool(1)  # converts variables to bool
 false = bool(0)  # empty variables are false
+
 
 # data types and type casting
 int()
@@ -126,7 +139,7 @@ list()
 # if-statement
 if true:  # equivalent to 'if true == True:'
     print('True')
-else:480
+else:
     print('Unnecessary')
 
 # while-loop
@@ -305,7 +318,7 @@ for character in text:
     print(character, end='')
 
 # tkinter
-from tkinter import *
+import tkinter
 
 root = Tk()  # creating an instance
 
@@ -323,3 +336,37 @@ first_label.pack()  # displaying the label
 first_button.pack()  # displaying the button
 
 root.mainloop()  # looping through the process, otherwise, there would be just one frame
+
+# threading
+import threading
+import time
+
+
+class myFred(threading.Thread):
+    def __init__(self, thread_id):
+        threading.Thread.__init__(self)
+        self.iD = thread_id
+        self.name = name
+
+    def run(self):  # the function run() will be run on separate cores by the start() function
+        lock_me.acquire()   # stops every other thread/locks them
+        print('Starting Thread ' + str(self.iD))
+        time.sleep(2)
+        lock_me.release()   # continues every other thread/releases them
+        print('Terminating Thread ' + str(self.iD))
+
+
+lock_me = threading.Lock()  # creates an instance of class Lock()
+thread1 = myFred(0)     # creates an instance of myFred() running on a separate core
+thread2 = myFred(1)
+
+thread1.start()     # starts Thread 1
+thread2.start()
+thread1.join()  # waits for Thread 1 to finish its process
+thread2.join()
+if thread1.isAlive():   # checks if Thread 1 is running
+    print('Impossible')
+
+print('Done')
+
+
