@@ -198,9 +198,9 @@ append_file = open('text.txt', 'a')  # open a file in append mode
 read_file = open('text.txt', 'r')  # open a file in read mode
 write_file = open('text', 'w')  # open a file in write mode
 file = open('/home/maxo/Storage/Python/venv/text', 'r+', encoding='latin-1')  # open a file in read + write mode
-file_string = file  # declaring  a variable to be the string of the file
-print(file.read(2))  # prints first two characters; \n counts as a character
-print(file.readline())  # prints first line
+file_string = file  # assigning the file to a variable
+print(file.read(2))  # reads and prints first two characters; \n counts as a character
+print(file.readline())  # reads and prints first line
 file = open('/home/maxo/Storage/Python/venv/text', 'r+', encoding='latin-1')
 for line in file:  # prints every line in
     print(line)
