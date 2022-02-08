@@ -1,5 +1,4 @@
 import time
-import pyautogui
 
 
 def get_input(text_message, data_type, exception_type=ValueError):
