@@ -11,10 +11,3 @@ def get_input(text_message, data_type, exception_type=ValueError):
         except exception_type:
             print('This is no valid input')
             continue
-
-
-def indent(lines):
-    for line in range(lines):
-        pyautogui.press('home')
-        pyautogui.press('down')
-        pyautogui.press('tab')
